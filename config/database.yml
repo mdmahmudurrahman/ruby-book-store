@@ -1,0 +1,13 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  username: garrisond
+  database: ruby-book-store-development
+
+test:
+  <<: *default
+  username: garrisond
+  database: ruby-book-store-test
