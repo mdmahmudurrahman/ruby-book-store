@@ -1,0 +1,19 @@
+.reviews.col-md-12
+  .reviews-head.clearfix
+    - if reviews.size > 0
+
+      .pull-left
+        %h3= t '.title'
+
+      .pull-right
+        = link_to t('.add_review_link_text'), book.new_review_path, add_review_button_options
+
+    - else
+
+      .no-reviews-block.text-center
+        %h3.no-reviews-text= t '.no_reviews_text'
+        %span= t '.create_first_link_text'
+        %span= link_to t('.here'), book.new_review_path
+
+  .reviews-body
+    = render partial: 'review', collection: reviews

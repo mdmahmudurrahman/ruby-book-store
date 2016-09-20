@@ -1,0 +1,21 @@
+.col-md-6
+  = simple_fields_for "#{type}_address_attributes", details.send("#{type}_address") do |form|
+    .form-title.text-center
+      %h4= t ".#{type}_address"
+
+      - if type == :shipping
+
+        .checkbox
+          %label
+            %input{shipping_checkbox_options}
+            = t '.use_data_from_billing_address'
+
+    %div{class: "#{type}-address-fields"}
+      = form.input :id, as: :hidden
+
+      - %i(firstname lastname street city).each do |field|
+        = form.input field
+
+      = form.input :zipcode, as: :integer
+      = form.input :phone, as: :tel
+      = form.input :country

@@ -1,0 +1,44 @@
+.store-index {
+  .welcome-text, .tagline-text {
+    display: block;
+  }
+
+  .carousel {
+    margin-bottom: 75px;
+
+    .carousel-cell {
+      width: 90%;
+      height: 420px;
+      margin: 0 30px;
+
+      .book-title .book-link {
+        text-decoration: none;
+      }
+
+      .book-cover-thumbnail img {
+        height: 280px;
+        max-width: 100%;
+      }
+
+      .book-description {
+        height: 285px;
+        overflow: hidden;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel {
+      margin-bottom: 40px;
+
+      .book-description {
+        display: none;
+      }
+
+      .page-header {
+        margin-top: 0;
+      }
+    }
+  }
+}

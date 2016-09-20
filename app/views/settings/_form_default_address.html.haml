@@ -1,0 +1,15 @@
+%div(class="col-md-6 user-#{type}-address-form")
+  = simple_form_for user, address_form_options do |u|
+    = u.simple_fields_for :"#{type}_address" do |a|
+      %input(type="hidden" name="operation" value="address")
+      %input(type="hidden" name="address[type]" value=type)
+      %h4.page-header= t ".#{type}_title"
+
+      - %i(firstname lastname street city).each do |field|
+        = a.input field
+
+      = a.input :zipcode, as: :integer
+      = a.input :phone, as: :tel
+      = a.input :country
+
+      = a.button :submit

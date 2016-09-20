@@ -1,0 +1,27 @@
+.clearfix(class="orders-#{type.to_s.gsub '_', '-'}")
+  %h4.page-header= t ".#{type}"
+
+  - if orders.size > 0
+
+    .col-md-8.col-md-offset-2
+      %table.table.text-center
+        %thead
+          %tr
+            - %i(number completed_at total).each do |column|
+              %th.text-center= t ".#{column}"
+
+            %th.text-center
+
+        %tbody
+          - orders.each do |order|
+            %tr
+              - %i(id completed_at total_price).each do |property|
+                %td= order.send "formatted_#{property}"
+
+              %td.text-left
+                = link_to t('.view'), order
+
+  - else
+
+    .lead.text-center
+      %small= t '.no_orders'

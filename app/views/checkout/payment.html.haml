@@ -1,0 +1,4 @@
+.col-md-4.col-md-offset-4{step: @step}
+  = simple_form_for details, url: wizard_path, method: :put do |form|
+    = render 'form_payment', card: details.credit_card
+    = form.button :submit, t('checkout.save_and_continue')

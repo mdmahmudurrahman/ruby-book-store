@@ -1,0 +1,31 @@
+.books-show {
+  .book {
+    margin: 30px;
+
+    .book-cover {
+      img {
+        height: 410px;
+        max-width: 100%;
+      }
+    }
+
+    .book-info {
+      .book-header {
+        .book-title {
+          span {
+            display: block;
+            margin-bottom: 3px;
+          }
+
+          margin: 0 0 20px;
+        }
+      }
+
+      .book-description {
+        height: 213px;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

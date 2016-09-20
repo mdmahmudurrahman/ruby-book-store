@@ -1,0 +1,6 @@
+%div{step: @step}
+  = simple_form_for details, url: wizard_path, method: :put do |form|
+    - [:billing, :shipping].each do |type|
+      = render 'form_address', type: type
+
+    .col-md-12= form.button :submit, t('checkout.save_and_continue')

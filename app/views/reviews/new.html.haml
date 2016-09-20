@@ -1,0 +1,12 @@
+.review-form.col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2
+  .panel.panel-default
+    .panel-heading
+      = t'.title'
+      = link_to book.title, book.path
+
+    .panel-body
+      = simple_form_for review, review_form_options(book) do |f|
+        = f.input :text, text_field_options
+        = f.input :mark, mark_field_options
+        = f.submit t('.send'), send_button_options
+        = cancel_review_button

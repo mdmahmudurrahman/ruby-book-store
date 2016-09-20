@@ -1,0 +1,7 @@
+- content_for :content do
+  = render 'checkout/progress'
+
+  .row
+    = yield
+
+= render template: 'layouts/application'

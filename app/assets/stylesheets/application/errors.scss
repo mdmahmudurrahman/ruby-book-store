@@ -1,0 +1,22 @@
+.alert {
+  margin: 0 0 15px;
+}
+
+.field-with-errors {
+  .form-control {
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:focus {
+      z-index: 2;
+    }
+  }
+
+  .alert {
+    margin-top: -1px;
+    text-align: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

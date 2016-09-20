@@ -1,0 +1,14 @@
+%div(class="panel panel-default #{type}-address")
+  .panel-heading
+    = t ".#{type}_address"
+
+    - if edit
+      .pull-right
+        = link_to t('checkout.edit'), wizard_path(:address)
+
+  .panel-body
+    - %i(fullname street city zipcode full_country phone).each do |field|
+      .row.address-field
+        - address = details.send "#{type}_address"
+        %strong.col-md-5.text-right= t ".#{field}"
+        .col-md-7.text-left= address.send field

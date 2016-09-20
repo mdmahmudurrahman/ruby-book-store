@@ -1,0 +1,22 @@
+.carousel.js-flickity(data-flickity-options='{ "wrapAround": true, "autoPlay": true }')
+  - books.each do |book|
+    .carousel-cell
+      .page-header.text-center
+        %h3.book-title= link_to book.title, book.path, class: 'book-link'
+        .book-authors& by #{book.comma_separated_authors}
+
+      .page-content
+        %a.book-cover-thumbnail.col-xs-12.col-md-3{href: book.path}
+          = book.image :sm, :cover, class: 'thumbnail center-block'
+
+        .book-description.text-justify
+          = book.description_short
+
+          = link_to t('.read_more'), book.path, class: 'readmore'
+
+.row.text-center
+  %h3.col-xs-11.center-block
+    = t '.welcome'
+
+  .lead.col-xs-9.center-block
+    =t '.tagline'

@@ -1,0 +1,85 @@
+- if order.items.size > 0
+
+  .text-center.clearfix
+    .col-md-3.col-md-offset-8
+      .col-md-4= t '.price'
+      .col-md-4= t '.count'
+      .col-md-4= t '.total'
+
+  = form_for order, url: cart_path, method: 'patch' do |form|
+    - order.items.each do |item|
+
+      = form.fields_for :items, item do |item_form|
+        .order-item.clearfix
+          .book-cover.col-md-2
+            = item.image :xxs, :cover, class: 'thumbnail center-block'
+
+          .book-details.col-md-6
+            %h4.book-title.text-center
+              = item.book.link
+
+            .book-description.text-justify
+              = item.description_short
+
+          %div.order-item-details.clearfix.col-md-3
+            %h4.price.text-center.col-md-4
+              = item.formatted_price
+
+            .quantity.col-md-4
+              = item_form.number_field :quantity, quantity_field_options(item.book)
+
+            %h4.item-total-price.text-center.col-md-4
+              = item.formatted_total_price
+
+          .col-md-1.text-center
+            %a.btn.btn-lg.btn-default.delete-button{delete_item_link_options(item)}
+              %span{:class => 'glyphicon glyphicon-trash'}
+
+
+    - if order.coupon || order.delivery_method
+      .delimiter.clearfix
+
+      .col-md-3.col-md-offset-8.text-right
+        .col-md-5.col-md-offset-3.subtotal-text= t '.subtotal'
+        %h4.col-md-4.subtotal-price= order.formatted_items_price
+
+        - if order.delivery_method
+
+          .col-md-5.col-md-offset-3.total-text.text-right= t '.shipping'
+          %h4.col-md-4.text-right= order.formatted_shipping_price
+
+        - if order.coupon
+
+          .col-md-5.col-md-offset-3.coupon-text= t '.discount'
+          %h4.col-md-4.coupon-price= order.formatted_coupon_price
+
+    .delimiter.clearfix
+
+    .col-md-3.col-md-offset-8.text-right
+      .col-md-4.col-md-offset-4.total-text= t '.total'
+      %h4.col-md-4.order-total-price= order.formatted_total_price
+
+    .clearfix
+
+    .buttons
+      .col-md-4
+        %a.btn.btn-danger{empty_cart_link_options}
+          %span{:class => 'glyphicon glyphicon-trash'}
+          = t '.empty_cart'
+
+        %a.btn.btn-default{href: store_path}
+          = t '.continue_shopping'
+
+      .col-md-4.col-md-offset-4.text-right
+        - if !order.coupon
+          = text_field_tag 'order[coupon]', nil, coupon_field_options
+
+        = form.submit t('.update'), class: 'btn btn-default'
+
+        %a.btn.btn-primary{href: checkout_index_path}
+          = t '.checkout'
+
+- else
+
+  .text-center.empty-cart-message.lead
+    = t '.cart_is_empty'

@@ -2,12 +2,27 @@ default: &default
   adapter: postgresql
   encoding: unicode
 
+production:
+  <<: *default
+  host: ec2-54-228-213-46.eu-west-1.compute.amazonaws.com
+  pool: 15
+
+  database: df45v80dfdr25r
+  username: zcycsbkietumzf
+  password: AyLNY4KK5dTiWrK2ZCWgm15Qvl
+
 development:
   <<: *default
+  host: localhost
+
+  database: ruby-book-store-dev
   username: garrisond
-  database: ruby-book-store-development
+  password: 123456
 
 test:
   <<: *default
-  username: garrisond
+  host: localhost
+
   database: ruby-book-store-test
+  username: garrisond
+  password: 123456

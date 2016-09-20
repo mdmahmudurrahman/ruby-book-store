@@ -1,5 +1,16 @@
+# frozen_string_literal: true
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  include Rectify::ControllerHelpers
+
+  include Localization
+  include Adminization
+  include Authentication
+
   protect_from_forgery with: :exception
+
+  private
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
 end

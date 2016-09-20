@@ -1,0 +1,52 @@
+.order-items
+  .text-center.clearfix
+    .row
+      .col-md-3.col-md-offset-9
+        - %w(PRICE COUNT TOTAL).each do |name|
+          .col-md-4= name
+
+    - order.items.each do |item|
+      .order-item.row.clearfix
+        .book-cover.col-md-2
+          = item.image :xxs, :cover, class: 'thumbnail center-block'
+
+        .book-details.col-md-7
+          %h4.book-title
+            = link_to item.title, item.book.path
+
+          .book-description.text-justify
+            = item.description_short
+
+        %div.order-item-details.clearfix.col-md-3
+          %h5.price.text-center.col-md-4
+            = item.formatted_price
+
+          %h5.quantity.col-md-4
+            = item.quantity
+
+          %h5.total-price.text-center.col-md-4
+            = item.formatted_total_price
+
+    .delimiter.clearfix
+
+    .row
+      .col-md-3.col-md-offset-9
+        .col-md-5.col-md-offset-2.total-text.text-right= t '.subtotal'
+        %h4.col-md-5.text-right= order.formatted_items_price
+
+        .col-md-5.col-md-offset-2.total-text.text-right= t '.shipping'
+        %h4.col-md-5.text-right= order.formatted_shipping_price
+
+        - if order.coupon
+
+          .col-md-5.col-md-offset-2.coupon-text.text-right= t '.discount'
+          %h4.col-md-5.text-right= order.formatted_coupon_price
+
+    .delimiter.clearfix
+
+    .row
+      .col-md-3.col-md-offset-9
+        .col-md-5.col-md-offset-2.total-text.text-right= t '.total'
+        %h4.col-md-5.text-right= order.formatted_total_price
+
+      .clearfix

@@ -1,0 +1,9 @@
+.categories.col-md-3.col-sm-12.col-xs-12.text-center
+  %h4= t '.title'
+
+  .list-group
+    - categories.each do |category|
+      %a.list-group-item{href: category.path}
+        = category.name
+
+        %span.badge= category.books_visible.size

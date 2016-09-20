@@ -1,0 +1,23 @@
+.reviews {
+  margin-top: 10px;
+
+  .reviews-head {
+    .add-new-review-button {
+      margin-top: 17px;
+    }
+
+    .no-reviews-block {
+      margin-top: 30px;
+
+      .no-reviews-text {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .reviews {
+    margin-top: 40px;
+  }
+}
