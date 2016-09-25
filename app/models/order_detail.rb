@@ -29,10 +29,6 @@ class OrderDetail < ApplicationRecord
     self.delivery_method ||= DeliveryMethod.default_one
   end
 
-  def build_credit_card
-    super unless credit_card
-  end
-
   private
 
   def update_order

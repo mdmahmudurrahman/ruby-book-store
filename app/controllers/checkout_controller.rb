@@ -53,7 +53,7 @@ class CheckoutController < ApplicationController
   end
 
   def initialize_payment
-    @details.build_credit_card
+    @details.build_credit_card unless @details.credit_card
   end
 
   def initialize_params
