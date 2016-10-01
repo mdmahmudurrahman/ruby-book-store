@@ -8,8 +8,8 @@
       - %i(firstname lastname street city).each do |field|
         = a.input field
 
-      = a.input :zipcode, as: :integer
-      = a.input :phone, as: :integer
+      = a.input :zipcode, as: :integer, input_html: {placeholder: '12345'}
+      = a.input :phone, as: :integer, input_html: {placeholder: '1234567890'}
       = a.input :country
 
       = a.button :submit
