@@ -8,7 +8,7 @@ class Ability
     if user.try :admin?
       admin_abilities
     elsif user
-      user_abilities user
+      user_abilities
     else
       guest_abilities
     end
@@ -22,10 +22,10 @@ class Ability
     can :read, Book.visible
   end
 
-  def user_abilities(user)
+  def user_abilities
     guest_abilities
     can :read, :setting
-    can :read, Order, user_id: user.id
+    can :read, Order, user_id: @user.id
   end
 
   def admin_abilities

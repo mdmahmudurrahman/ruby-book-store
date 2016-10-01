@@ -3,14 +3,11 @@ class OrderItemsController < ApplicationController
   include Orderization
 
   load_and_authorize_resource :book, only: :create
+  before_action :initialize_parameters, only: :create
   before_action :initialize_order_item, only: :destroy
 
   def create
-    parameters = params.require(:order_item)
-                       .permit(:quantity)
-                       .merge book: @book
-
-    OrderItemCreate.call current_order, parameters do
+    OrderItemCreate.call current_order, @params do
       on(:success) do
         save_order_cookie unless current_user
         flash[:notice] = t 'book_added_to_cart'
@@ -28,8 +25,10 @@ class OrderItemsController < ApplicationController
   private
 
   def initialize_order_item
-    id = params.dig :id
-    items = current_order.items
-    @order_item = items.find id
+    @order_item = current_order.items.find params[:id]
+  end
+
+  def initialize_parameters
+    @params = params.require(:order_item).permit(:quantity).merge book: @book
   end
 end
