@@ -1,0 +1,10 @@
+.col-md-12.user-destroy-form
+  %h4.page-header= t '.title'
+
+  = simple_form_for user, destroy_user_form_options do |f|
+    = f.button :button, t('.destroy_button_caption'), destroy_button_options
+
+    .checkbox
+      %label
+        %input(type='checkbox' name='agree')
+        = t '.warning_notification'

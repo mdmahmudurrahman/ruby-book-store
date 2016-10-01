@@ -1,0 +1,11 @@
+%div{step: @step}
+  = simple_form_for details, url: wizard_path, method: :put do |form|
+    .clearfix
+      .col-md-4= render 'info_address', type: :billing, edit: true
+      .col-md-4= render 'info_address', type: :shipping, edit: true
+      .col-md-4= render 'info_delivery', delivery: details.delivery_method, edit: true
+      .col-md-4= render 'info_payment', card: details.credit_card, edit: true
+
+    = render 'order_items_info', order: order
+
+    = form.button :submit, t('.place_my_order'), class: 'btn-info'

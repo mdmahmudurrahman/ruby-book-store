@@ -1,0 +1,18 @@
+.book-order-form
+  .panel.panel-default
+    .panel-heading= t '.panel_heading'
+
+    .panel-body
+      %h3.book-price.pull-left
+        = book.formatted_price
+
+      - if book.count > 0
+
+        = simple_form_for :order_item, add_to_cart_form_options(book) do |f|
+          = f.submit t('.add_to_cart'), add_to_cart_button_options
+          = f.input :quantity, quantity_field_options(book)
+
+      - else
+
+        .book-not-available-alert.text-right
+          = t '.sold_out'

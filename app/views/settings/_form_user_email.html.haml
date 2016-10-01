@@ -1,0 +1,7 @@
+.col-md-6.user-email-form
+  = simple_form_for user, email_form_options do |f|
+    %input(type="hidden" name="operation" value="email")
+    %h4.page-header= t '.title'
+
+    = f.input :email, email_field_options
+    = f.button :submit

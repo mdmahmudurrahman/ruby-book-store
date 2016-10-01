@@ -1,0 +1,29 @@
+/*
+ *= require flickity
+ *= require star-rating
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.alert {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.center-block {
+  float: none !important;
+}
+
+.form-control {
+  -webkit-appearance: none;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";

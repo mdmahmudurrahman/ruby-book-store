@@ -1,23 +1,293 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  coupon_applied: 'Coupon was successfully applied!'
+  coupon_expired: 'Coupon is expired and cannot be used!'
+  coupon_invalid: 'There is no coupon with such secret phrase!'
+
+  book_added_to_cart: 'Book was successfully added to your cart!'
+
+  application:
+    header:
+      nav:
+        home: 'Home'
+        cart: 'Cart'
+        store: 'Store'
+        orders: 'Orders'
+        logout: 'Log out'
+        signin: 'Sign in'
+        signup: 'Sign up'
+        settings: 'Settings'
+
+  store:
+    index:
+      read_more: 'Read more'
+      welcome: 'Welcome to our amazing Bookstore!'
+      tagline: 'Choose anything you wish, we will ship it anywhere!'
+
+    categories:
+      title: 'Categories'
+
+    books:
+      no_books: 'There is no books in this category!'
+
+  authors:
+    show:
+      books: 'Books'
+
+  books:
+    show:
+      read_more_link_text: 'Read more'
+
+    description:
+      description_text: 'Description'
+      close_button_text: 'Close'
+
+    order_form:
+      sold_out: 'Sold out.'
+      add_to_cart: 'Add to cart'
+      panel_heading: 'Order the book'
+
+    reviews:
+      here: 'here!'
+      title: 'Reviews'
+      no_reviews_text: 'No reviews.'
+      add_review_link_text: 'Add new review'
+      create_first_link_text: 'Create the first one'
+
+  reviews:
+    new:
+      send: 'Send'
+      cancel: 'Cancel'
+      title: 'Leave feedback for'
+
+    review_created: 'Review was created successfully! It will be shown after moderation.'
+
+  carts:
+    show:
+      price: 'PRICE'
+      count: 'COUNT'
+      total: 'TOTAL'
+      subtotal: 'SUBTOTAL'
+      discount: 'DISCOUNT'
+      shipping: 'SHIPPING'
+
+      update: 'Update'
+      checkout: 'Checkout'
+      empty_cart: 'Empty cart'
+      coupon_code: 'Coupon code'
+      continue_shopping: 'Continue shopping'
+      cart_is_empty: 'Your cart is empty now.'
+
+  settings:
+    index:
+      email: 'Email was updated successfully!'
+      password: 'Password was updated successfully!'
+      billing_address: 'Billing address was updated successfully!'
+      shipping_address: 'Shipping address was updated successfully!'
+
+    form_default_address:
+      billing_title: 'Billing address'
+      shipping_title: 'Shipping address'
+
+    form_user_email:
+      title: 'Email address'
+
+    form_user_password:
+      title: 'Password'
+
+    form_user_destroy:
+      title: 'Remove account'
+      destroy_button_caption: 'Please, remove my account.'
+      warning_notification: 'I understand that all data will be lost.'
+
+  orders:
+    index:
+      in_progress: 'IN PROGRESS'
+
+    orders_table:
+      view: 'VIEW'
+      number: 'NUMBER'
+      total: 'TOTAL PRICE'
+      completed_at: 'COMPLETED AT'
+
+      no_orders: 'No orders'
+
+      delivered: 'DELIVERED'
+      in_delivery: 'IN DELIVERY'
+      in_queue: 'WAITING FOR PROCESSING'
+
+    show:
+      order_title: 'Order'
+      continue_shopping_link: 'Continue shopping'
+
+  checkout:
+    edit: 'Edit'
+    save_and_continue: 'Save and continue'
+
+    progress:
+      address: 'Address'
+      payment: 'Payment'
+      confirm: 'Confirm'
+      delivery: 'Delivery'
+
+    confirm:
+      place_my_order: 'Yes, everything is right. Place my order.'
+
+    form_address:
+      billing_address: 'Billing address'
+      shipping_address: 'Shipping address'
+      use_data_from_billing_address: 'Use data from billing address'
+
+    form_payment:
+      year_prompt: 'Choose the expiration year'
+      month_prompt: 'Choose the expiration month'
+
+    info_address:
+      billing_address: 'Billing address'
+      shipping_address: 'Shipping address'
+
+      phone: 'Phone:'
+      city: 'City info:'
+      zipcode: 'ZIP code:'
+      fullname: 'Fullname:'
+      street: 'Street info:'
+      full_country: 'Country:'
+
+    info_delivery:
+      delivery_method: 'Delivery Method'
+
+    info_payment:
+      payment: 'Payment Information'
+
+    order_items_info:
+      total: 'TOTAL'
+      discount: 'DISCOUNT'
+      subtotal: 'SUBTOTAL'
+      shipping: 'SHIPPING'
+
+  devise:
+    forms:
+      sign-in-text: 'Already have an account? Sign in'
+      sign-up-text: "Don't have an account? Sign up"
+
+      sign-in:
+        form-title: 'Sign in'
+        forgot-password-text: 'Forgot?'
+        remember-me-text: 'Remember me'
+        log-in-button-text: 'Log in'
+
+      sign-up:
+        form-title: 'Sign up'
+        sign-up-button-text: 'Sign up'
+
+      reset-pwd:
+        form-title: 'Reset password'
+        reset-pwd-button-text: 'Reset'
+
+    failure:
+      deleted_account: "You've deleted your account. Please contact to support."
+
+  admin:
+    actions:
+      bulk_hide:
+        menu: "Hide"
+        bulk_link: "Hide selected %{model_label_plural}"
+
+  order_states:
+    canceled: 'CANCELED'
+    in_queue: 'IN QUEUE'
+    delivered: 'DELIVERED'
+    in_progress: 'IN PROGRESS'
+    in_delivery: 'IN DELIVERY'
+
+  helpers:
+    placeholder:
+      user:
+        email: 'Email address'
+
+        password: 'Password'
+        password_confirmation: 'Password again'
+
+      review:
+        text: 'Your feedback here...'
+
+      credit_card:
+        firstname: 'First name'
+        lastname: 'Last name'
+
+    submit:
+      user:
+        update: 'Update'
+
+      user[billing_address_attributes]:
+        create: 'Save'
+        update: 'Update'
+
+      user[shipping_address_attributes]:
+        create: 'Save'
+        update: 'Update'
+
+  messages:
+    update_password: 'Password was successfully updated!'
+
+    user_form:
+      match: 'Passwords are not equal!'
+      blank: "%{attribute} can't be blank!"
+      length: "Password must contain 6 or more symbols!"
+
+    delete_settings_form:
+      agree_checkbox: 'You must flag the checkbox if you want to remove your account!'
+
+  activerecord:
+    attributes:
+      address:
+        zipcode: 'ZIP code'
+        lastname: 'Last name'
+        firstname: 'First name'
+        street: 'Street address'
+
+      credit_card:
+        lastname: 'Last name'
+        firstname: 'First name'
+
+        code: 'CVC code'
+        number: 'Serial number'
+
+    errors:
+      messages:
+        invalid: "is invalid!"
+        blank: "can't be blank!"
+        taken: "has already been taken!"
+
+      models:
+        address:
+          invalid: "Can contain only the letters, whitespaces and hyphens!"
+
+          attributes:
+            phone:
+              invalid: 'Can contain only the digits!'
+            zipcode:
+              invalid: 'Can contain only the digits!'
+
+        credit_card:
+          attributes:
+            number:
+              invalid: 'must be 16 digits number!'
+            code:
+              invalid: 'must be 4 digits number!'
+
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: 'and password must be the same!'
+
+        delete_settings_form:
+          attributes:
+            agree:
+              blank: 'abc'
+
+  time:
+    formats:
+      short: '%B %d, %Y'
+
+  image:
+    not-available: 'No image available'

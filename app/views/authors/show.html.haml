@@ -1,0 +1,20 @@
+.col-md-8.col-md-offset-2
+  %h3.author-fullname.text-center
+    = author.fullname
+
+  .author-description.text-justify
+    %p= author.description
+
+  %h4.page-header
+    = t '.books'
+
+  .author-books.clearfix
+    - books.each do |book|
+      %a.book.col-md-3.col-sm-4.text-center{href: book.path}
+        .cover= book.image :xs, :cover, class: 'thumbnail center-block'
+
+        %span= book.title
+        %h4.price= book.formatted_price
+
+    .pagination-container.text-center.col-xs-12
+      = paginate books

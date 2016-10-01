@@ -1,0 +1,7 @@
+.navbar.navbar-default
+  .container-fluid
+    .navbar-collapse.collapse
+      .nav.navbar-nav
+        - steps.each do |step|
+          %button{step_button_options(step)}
+            = t ".#{step}"

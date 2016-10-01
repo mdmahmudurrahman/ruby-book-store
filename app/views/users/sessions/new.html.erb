@@ -1,0 +1,33 @@
+<%- if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+<% end %>
+
+<%= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin'} do |f| %>
+    <h2 class="text-center">
+      <%= t('devise.forms.sign-in.form-title') %>
+    </h2>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: true, required: true %>
+    </div>
+
+    <div class="field" style="position: relative">
+      <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: true, required: true %>
+      <%= link_to t('devise.forms.sign-in.forgot-password-text'), new_password_path('user'), id: 'forget-link' %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, t('devise.forms.sign-in.remember-me-text') %>
+        </div>
+    <% end -%>
+
+    <div class="actions">
+      <%= f.submit t('devise.forms.sign-in.log-in-button-text'), class: 'btn btn-primary' %>
+    </div>
+
+    <%= render 'users/shared/links' %>
+<% end %>

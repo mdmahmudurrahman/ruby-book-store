@@ -2,8 +2,12 @@
 /.idea
 /log/*
 /tmp/*
+/public/uploads
 !/log/.keep
 !/tmp/.keep
 .byebug_history
 .DS_Store
 cache
+
+# never delete!
+!/tmp/caching-dev.txt

@@ -1,0 +1,4 @@
+.col-md-12{step: @step}
+  = simple_form_for details, url: wizard_path, method: :put do |form|
+    = form.association :delivery_method, delivery_method_options
+    = form.button :submit, t('checkout.save_and_continue')

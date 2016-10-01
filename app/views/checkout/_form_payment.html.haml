@@ -1,0 +1,11 @@
+= simple_fields_for :credit_card_attributes, card do |form|
+  = form.input :id, as: :hidden
+
+  - %i(firstname lastname).each do |field|
+    = form.input field
+
+  - %i(number code).each do |field|
+    = form.input field, input_html: { inputmode: :numeric }
+
+  - %i(month year).each do |field|
+    = form.input field, (send "#{field}_select_options")

@@ -1,0 +1,16 @@
+- if flash[:alert]
+  .alert.alert-info.notification
+    = t ".#{flash[:alert]}"
+
+.row
+  .col-md-8.col-md-offset-2
+    .clearfix
+      = render 'settings/form_default_address', type: :billing, user: @user
+      = render 'settings/form_default_address', type: :shipping, user: @user
+
+    .clearfix
+      = render 'settings/form_user_email', user: @user
+      = render 'settings/form_user_password', user: @user
+
+    .clearfix
+      = render 'settings/form_user_destroy', user: @user

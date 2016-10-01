@@ -1,0 +1,64 @@
+.carts-show {
+  .content {
+    padding-top: 10px;
+  }
+
+  .total-text,
+  .coupon-text,
+  .subtotal-text {
+    margin-top: 10px;
+  }
+
+  .buttons {
+    margin-top: 15px;
+  }
+
+  .coupon-field {
+    width: 150px;
+    display: inline;
+  }
+
+  .delimiter {
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+.order-item {
+  overflow: hidden;
+  margin-top: 10px;
+  min-height: 110px;
+
+  .book-cover {
+    height: 190px;
+  }
+
+  .book-details {
+    .book-description {
+      height: 90px;
+    }
+  }
+
+  .order-item-details {
+    @media(min-width: 992px) {
+      margin-top: 57px;
+    }
+
+    .price, .total-price {
+      margin-top: 7px;
+    }
+
+    .quantity input {
+      padding: 0 0 0 14px;
+    }
+  }
+
+  .delete-button {
+    @media (min-width: 992px) {
+      margin-top: 53px;
+    }
+  }
+}
+
+.empty-cart-message {
+  margin-top: 30px;
+}

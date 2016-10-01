@@ -1,0 +1,20 @@
+.books.col-md-9.col-sm-12.col-xs-12
+  - if books.size > 0
+    - books.each do |book|
+      %a.book.col-lg-3.col-md-4.col-sm-4.col-xs-4.text-center{href: book.path}
+        .cover
+          = book.image :xs, :cover, class: 'thumbnail center-block'
+
+        %span
+          = book.title
+
+        %h4.price
+          = book.formatted_price
+
+    .pagination-container.text-center.col-xs-12
+      = paginate books
+
+  - else
+
+    .text-center.lead
+      = t '.no_books'

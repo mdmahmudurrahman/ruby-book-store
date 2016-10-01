@@ -1,0 +1,6 @@
+- if order.items.size > 0
+  %h4.page-header.text-uppercase= t '.in_progress'
+  = render 'checkout/order_items_info', order: order
+
+- @orders.each do |type, orders|
+  = render 'orders_table', type: type, orders: orders

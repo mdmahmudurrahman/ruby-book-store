@@ -1,0 +1,27 @@
+en:
+  simple_form:
+    yes: 'Yes'
+    no: 'No'
+
+    labels:
+      credit_card:
+        year: 'Expiration year'
+        month: 'Expiration month'
+
+    required:
+      text: 'Required field.'
+
+    placeholders:
+      user:
+        email: 'Email address'
+
+        password: 'Password'
+        current_password: 'Current password'
+        password_confirmation: 'Password confirmation'
+
+      credit_card:
+        lastname: 'Snow'
+        firstname: 'John'
+
+        code: '••••'
+        number: '•••• •••• •••• ••••'

@@ -1,0 +1,14 @@
+.panel.panel-default.credit-card
+  .panel-heading
+    = t '.payment'
+
+    - if edit
+      .pull-right
+        = link_to t('checkout.edit'), wizard_path(:payment)
+
+  .panel-body
+    %span.pull-left
+      = card.formatted_number
+
+    %span.pull-right
+      %strong= card.formatted_date

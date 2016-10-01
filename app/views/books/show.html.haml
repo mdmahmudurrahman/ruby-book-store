@@ -1,0 +1,22 @@
+.book
+  .book-cover.col-md-4
+    = book.image :md, :cover, book_cover_options
+
+  .book-info.col-md-8
+    .book-header.text-center
+      %h2.book-title
+        %span= book.title
+
+        %small.book-authors.text-nowrap
+          & by #{book.comma_separated_authors}
+
+    .book-description.text-justify
+      = book.description_full
+
+      %a.readmore(data-target=".modal" data-toggle="modal" type="button" href='#')
+        = t '.read_more_link_text'
+
+    = render 'description', book: book
+    = render 'order_form', book: book
+
+  = render 'reviews', reviews: reviews, book: book

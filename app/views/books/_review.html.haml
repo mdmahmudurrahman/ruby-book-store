@@ -1,0 +1,14 @@
+.review.panel.panel-default
+  .panel-heading.review-title.clearfix
+    .col-xs-4.text-left.user
+      = review.user.full_name
+
+    .col-xs-4.text-center
+      %input{mark_read_only_options(review.mark)}
+
+    .col-xs-4.text-right.publish-date
+      = review.create_date
+
+  .panel-body
+    .review-text.text-justify
+      = review.text

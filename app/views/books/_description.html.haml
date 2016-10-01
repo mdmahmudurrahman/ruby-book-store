@@ -1,0 +1,18 @@
+.modal.fade(aria-labelledby="modal-label" role="dialog" tabindex="-1")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        %button.close(aria-label="Close" data-dismiss="modal" type="button")
+          %span(aria-hidden="true") &times;
+
+        %h4.modal-title#modal-label
+          = book.title
+
+          %small= t '.description_text'
+
+      .modal-body.text-justify
+        = book.description_full
+
+      .modal-footer
+        %button.btn.btn-default(data-dismiss="modal" type="button")
+          = t '.close_button_text'

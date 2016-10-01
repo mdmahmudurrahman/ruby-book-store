@@ -1,0 +1,14 @@
+.clearfix
+  .page-header
+    .lead.text-center.order-number
+      = order.formatted_name
+
+  - %i(billing shipping).each do |type|
+    .col-md-4= render 'checkout/info_address', type: type, edit: false
+
+  .col-md-4= render 'checkout/info_delivery', delivery: details.delivery_method, edit: false
+  .col-md-4= render 'checkout/info_payment', card: details.credit_card, edit: false
+
+= render 'checkout/order_items_info', order: order
+
+= shop_link

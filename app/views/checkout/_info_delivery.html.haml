@@ -1,0 +1,14 @@
+.panel.panel-default.delivery-method
+  .panel-heading
+    = t '.delivery_method'
+
+    - if edit
+      .pull-right
+        = link_to t('checkout.edit'), wizard_path(:delivery)
+
+  .panel-body
+    %span.pull-left
+      = delivery.name
+
+    %span.pull-right
+      %strong= delivery.formatted_price
