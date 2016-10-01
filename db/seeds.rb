@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Cloudinary::Api.delete_all_resources type: :upload
+Cloudinary::Api.delete_all_resources type: :upload if Rails.env.production?
 
 user = FactoryGirl.create :user, email: 'user@example.com', password: '123456'
 

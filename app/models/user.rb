@@ -34,11 +34,20 @@ class User < ApplicationRecord
   ###=> methods
 
   %i(billing_address shipping_address).each do |field|
-    define_method(field) { super() || send("build_#{field}") }
+    define_method(field) do
+      super() || send("build_#{field}", {
+        firstname: self.firstname,
+        lastname: self.lastname
+      })
+    end
   end
 
   def self.from_omniauth(auth)
     facebook_user(auth.provider, auth.uid).tap do |user|
+      name, surname = auth.info.name.split /\s/
+      user.firstname = name
+      user.lastname = surname
+
       user.uid = auth.uid
       user.email = auth.info.email
       user.provider = auth.provider
