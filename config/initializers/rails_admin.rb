@@ -31,14 +31,16 @@ RailsAdmin.config do |config|
     bulk_hide { only %i(Book Review) }
   end
 
-  config.excluded_models = %i(
-    Authorisation Categorisation
-  )
+  config.excluded_models = %i(Authorisation Categorisation)
 
   config.model Address do
     %i(firstname lastname country city street zipcode phone).each do |field|
       field field
     end
+  end
+
+  config.model OrderDetail do
+    exclude_fields :order
   end
 
   config.model DeliveryMethod do
